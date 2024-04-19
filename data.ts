@@ -50,9 +50,9 @@ export const drivers = [
         "Lewis Hamilton",
         1985,
         "https://i.pinimg.com/564x/9d/01/3a/9d013a68aa7f2797a584f0f79fc8cd32.jpg",
-        103, // Número ficticio para fines ilustrativos
+        103, 
         7,
-        104, // Número ficticio para fines ilustrativos
+        104,
         "Lewis Hamilton es uno de los pilotos más exitosos de la era moderna de la Fórmula 1. Ha ganado múltiples campeonatos mundiales y establecido numerosos récords en la categoría. Su habilidad y dedicación lo han convertido en una leyenda del deporte."
     )
 

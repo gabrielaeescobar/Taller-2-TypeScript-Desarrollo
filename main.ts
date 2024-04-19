@@ -7,31 +7,28 @@ let driverDetailsDiv: HTMLElement = document.getElementById("driverDetails")!;
 mostrarDrivers();
 
 function mostrarDrivers(): void {
-    let driversTbody = document.createElement("tbody"); // Crea un tbody para agregar a la tabla
-    driversTable.appendChild(driversTbody); // Agrega el tbody a la tabla
+    let driversTbody = document.createElement("tbody"); 
+    driversTable.appendChild(driversTbody);
 
     for (let driver of data) {
         let trElement = document.createElement("tr");
 
-        // Celda para el nombre con un enlace clickeable
         let nameCell = document.createElement("td");
         let nameLink = document.createElement("a");
         nameLink.textContent = driver.nombre;
-        nameLink.href = "#"; // Añadir href="#" para comportamiento estándar de enlace
+        nameLink.href = "#"; 
         nameLink.onclick = () => {
             showDriverDetails(driver);
-            return false; // Previene que el enlace navegue a otra página
+            return false; 
         };
         nameCell.appendChild(nameLink);
 
-        // Crear y añadir las otras celdas
         trElement.innerHTML += `<td>${driver.anioNacimiento}</td>
                                 <td>${driver.granPrixGanados}</td>
                                 <td>${driver.campeonatosGanados}</td>
                                 <td>${driver.polePositions}</td>`;
-        trElement.prepend(nameCell); // Añade la celda del nombre al principio del trElement
-
-        driversTbody.appendChild(trElement); // Añade el trElement al tbody, no a la tabla directamente
+        trElement.prepend(nameCell); 
+        driversTbody.appendChild(trElement); 
     }
 }
 
