@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Cards</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Lista de Elementos</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Elemento 1</h5>
+                    <p class="card-text">Información detallada sobre el elemento 1.</p>
+                    <a href="#" class="btn btn-primary">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Elemento 2</h5>
+                    <p class="card-text">Información detallada sobre el elemento 2.</p>
+                    <a href="#" class="btn btn-primary">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Elemento 3</h5>
+                    <p class="card-text">Información detallada sobre el elemento 3.</p>
+                    <a href="#" class="btn btn-primary">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjeta de Detalles Oculta -->
+    <div class="card mt-4" id="detalleCard" style="display: none;">
+        <div class="card-body">
+            <h5 class="card-title" id="detalleTitulo"></h5>
+            <p class="card-text" id="detalleTexto"></p>
+            <a href="#" class="btn btn-secondary" id="cerrarDetalle">Cerrar</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Obtener referencia a los elementos de la tarjeta de detalles
+    const detalleCard = document.getElementById('detalleCard');
+    const detalleTitulo = document.getElementById('detalleTitulo');
+    const detalleTexto = document.getElementById('detalleTexto');
+    const cerrarDetalle = document.getElementById('cerrarDetalle');
+
+    // Agregar eventos clic a los botones "Ver Detalles"
+    const botonesDetalle = document.querySelectorAll('.btn-primary');
+    botonesDetalle.forEach(boton => {
+        boton.addEventListener('click', () => {
+            // Obtener el título y el texto de la tarjeta original
+            const cardBody = boton.closest('.card-body');
+            const titulo = cardBody.querySelector('.card-title').textContent;
+            const texto = cardBody.querySelector('.card-text').textContent;
+
+            // Mostrar la tarjeta de detalles con la información correspondiente
+            detalleTitulo.textContent = titulo;
+            detalleTexto.textContent = texto;
+            detalleCard.style.display = 'block';
+        });
+    });
+
+    // Agregar evento clic al botón "Cerrar"
+    cerrarDetalle.addEventListener('click', () => {
+        detalleCard.style.display = 'none'; // Ocultar la tarjeta de detalles
+    });
+</script>
+
+</body>
+</html>
